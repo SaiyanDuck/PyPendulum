@@ -1,0 +1,15 @@
+{
+    "L": 1.0,
+    "massa": 1.0,
+    "tf": 10.0,
+    "theta0": 45.0,
+    "omega0": 0.0,
+    "amortecimento": 0.5,
+    "amp_forca": 1.2,
+    "freq_forca": 0.66,
+    "theta1": 120.0,
+    "omega1": 0.0,
+    "theta2": 30.0,
+    "omega2": 0.0,
+    "ultimo_acesso": "2026-01-08 19:44:34.090122"
+}
