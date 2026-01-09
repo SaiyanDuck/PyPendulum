@@ -26,7 +26,7 @@ Visualização simultânea do comportamento físico (esquerda) e da trajetória 
 Demonstração visual da sensibilidade às condições iniciais no **Pêndulo Duplo**. Cinco simulações são iniciadas simultaneamente com variações infinitesimais (0.005 rad). Em poucos segundos, as trajetórias divergem completamente, ilustrando a imprevisibilidade do caos.
 
 <div align="center">
-  <img src="assets/anim_1946.gif" width="600" alt="Demonstração de Caos - Pêndulo Duplo">
+  <img src="assets/anim_1225.gif" width="600" alt="Demonstração de Caos - Pêndulo Duplo">
   <p><em>Exemplo: Divergência de 5 trajetórias próximas</em></p>
 </div>
 
