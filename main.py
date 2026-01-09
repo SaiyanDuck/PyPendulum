@@ -1,7 +1,7 @@
 """
 Feito por: Thales serafim santore
 Computação 1 - POLI UFRJ 25.2
-PyPendulum - Versão 0.91 (Alguns fixes no codigo Final)
+PyPendulum - Versão 0.92 (Alguns fixes no codigo Final)
 
 Descrição:
     Simulador interativo de pêndulos (Simples, Forçado/Amortecido e Duplo).
@@ -169,18 +169,19 @@ def edo_pendulo_duplo(t, S, L1, L2, m1, m2):
     """
     theta1, omega1, theta2, omega2 = S
     delta = theta1 - theta2
-    den1 = (m1 + m2) * L1 - m2 * L1 * np.cos(delta)**2
-    den2 = (L2 / L1) * den1
+
+    den1 = L1 * (2 * m1 + m2 - m2 * np.cos(2 * theta1 - 2 * theta2))
+    domega1 = (-G * (2 * m1 + m2) * np.sin(theta1) -
+              m2 * G * np.sin(theta1 - 2 * theta2) - 2 * np.sin(delta) * m2 * 
+              (omega2**2 * L2 + omega1**2 * L1 * np.cos(delta)) ) / den1
     
-    domega1 = (m2 * L1 * omega1**2 * np.sin(delta) * np.cos(delta) +
-           m2 * G * np.sin(theta2) * np.cos(delta) +
-           m2 * L2 * omega2**2 * np.sin(delta) -
-           (m1 + m2) * G * np.sin(theta1)) / den1
-           
-    domega2 = (-m2 * L2 * omega2**2 * np.sin(delta) * np.cos(delta) +
-           (m1 + m2) * G * np.sin(theta1) * np.cos(delta) -
-           (m1 + m2) * L1 * omega1**2 * np.sin(delta) -
-           (m1 + m2) * G * np.sin(theta2)) / den2
+    den2 = L2 * (2 * m1 + m2 - m2 * np.cos(2 * theta1 - 2 * theta2))
+    domega2 = 2 * np.sin(delta) * (
+            (omega1**2 * L1 * (m1 + m2)) + 
+            G * (m1 + m2) * np.cos(theta1)  + 
+            omega2**2 * L2 * m2 *np.cos(delta)
+            ) / den2
+
     return [omega1, domega1, omega2, domega2]
 
 
@@ -529,7 +530,7 @@ def update_sensibilidade(i, linhas, massas, rastros, textos, todos_dados, tempo,
 def print_logo():
     logo = """
     ###########################
-    #  PyPendulum Versão 0.91 #
+    #  PyPendulum Versão 0.92 #
     ###########################
            ___________
                 |
